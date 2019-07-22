@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+   {% block content %}
+<a class="nav-link" href="{{url_for('login')}}">Login</a>
+   {% endblock %}
+   {% block body %}
+    <div class="container text-center" style="width: 320px; margin-top: 5%;">
+    <form class="form-signin" action="" method="post">
+      <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+            {{ form.username(class='form-control', placeholder='Username', style='margin-bottom:2%;') }}
+            {{ form.password(class='form-control', placeholder='Password') }}
+            {% if msg %}
+            <div class="alert alert-warning" style="margin-top: 4%;" role="alert">
+            {{msg}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+            </div>
+            {% endif %}
+      <button style="margin-top: 10%;" class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+    </form>
+</div>
+{% endblock %}

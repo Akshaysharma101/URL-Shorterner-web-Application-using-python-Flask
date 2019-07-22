@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+    {% block body %}
+
+    <form action="/{{name}}" method="POST" id="url">
+        <div class="container">
+      <div class="input-group mb-3" style="
+                                            padding-top: 150px;
+                                            padding-left: 200px;
+                                            padding-right: 200px;">
+
+  {{ form.urls(class="form-control", placeholder="URL to Short", onfocus="this.value=''") }}
+  <div class="input-group-append">
+    <button class="btn btn-outline-dark" type="submit" id="button-addon2">ShortURL</button>
+  </div>
+</div>
+    </div>
+    <p>{{msg}}</p>
+    </form>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Shorten URLs</th>
+      <th scope="col">Long URLs</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for document in hi %}
+    <tr>
+      <td><p class="lead"><a class="new1" target="_blank" style="margin-left: 2%;" href="{{ document['real'] }}" class="lead">{{ document['short'] }}</a></p></td>
+      <td><p class="lead">{{ document['real'] }}</p></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+   {% endblock %}
